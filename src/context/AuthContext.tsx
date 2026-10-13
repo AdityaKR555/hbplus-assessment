@@ -11,7 +11,7 @@ import { doc, setDoc } from 'firebase/firestore';
 import { auth, db } from '../services/firebase';
 import { Platform } from 'react-native';
 
-const ALLOWED_DOMAIN = process.env.EXPO_PUBLIC_ALLOWED_DOMAIN;
+const ALLOWED_DOMAIN = "@hbplus.fit";
 
 export type UserRole = 'Admin' | 'User';
 
