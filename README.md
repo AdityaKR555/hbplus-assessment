@@ -61,41 +61,39 @@ hbplus-portal/
 ├── tsconfig.json             # TypeScript configuration
 └── README.md                 # Project documentation
 
+```
 
 # ⚙️ Local Development Setup
 
 ## 1. Prerequisites
 
-* Node.js (v18.x or later)
+- Node.js (v18.x or later)
 
-* npm or yarn
+- npm or yarn
 
 ## 2. Installation
 
-* Clone the repository and install dependencies:
+- Clone the repository and install dependencies:
 
-* git clone https://github.com/your-username/hbplus-auth.git
-* cd hbplus-assessment
-* npm install
-
+- git clone https://github.com/your-username/hbplus-auth.git
+- cd hbplus-assessment
+- npm install
 
 ## 3. Environment Configuration
 
-* Create a .env file in the root directory and supply your Firebase web project credentials:
+- Create a .env file in the root directory and supply your Firebase web project credentials:
 
-   EXPO_PUBLIC_FIREBASE_API_KEY=your_api_key
-   EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-   EXPO_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
-   EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
-   EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
-   EXPO_PUBLIC_FIREBASE_APP_ID=your_app_id
-
+  EXPO_PUBLIC_FIREBASE_API_KEY=your_api_key
+  EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+  EXPO_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+  EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+  EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+  EXPO_PUBLIC_FIREBASE_APP_ID=your_app_id
 
 ## 4. Running Locally
 
-* Start the development server for web:
+- Start the development server for web:
 
-* npx expo start -c --web
+- npx expo start -c --web
 
-* Open http://localhost:8081 in your browser.
-```
+- Open http://localhost:8081 in your browser.
