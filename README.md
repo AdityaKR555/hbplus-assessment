@@ -1,56 +1,101 @@
-# Welcome to your Expo app 👋
+# HBPlus Secure Staff Portal
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A professional, minimalist, and secure web-first portal built for **HBPlus** fitness company as part of the internship assignment. The application ensures secure access through strict corporate domain restrictions, Role-Based Access Control (RBAC), and Google OAuth authentication.
 
-## Get started
+---
 
-1. Install dependencies
+## 🚀 Live Demo & Repository
 
-   ```bash
-   npm install
-   ```
+- **Live Deployment:** [https://hbplusss.netlify.app/](https://hbplusss.netlify.app/)
+- **GitHub Repository:** [https://github.com/AdityaKR555/hbplus-assessment](https://github.com/AdityaKR555/hbplus-assessment)
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 🛠️ Technology Stack
 
-In the output, you'll find options to open the app in a
+- **Frontend Framework:** React Native (Expo Router) for cross-platform web capabilities.
+- **Authentication:** Firebase Auth with Google OAuth 2.0 (Email domain restriction to `@hbplus.fit`).
+- **Database & Persistence:** Google Cloud Firestore (User profiles and session tracking).
+- **Styling:** Custom responsive design with a minimalist dark theme.
+- **Deployment & Hosting:** Netlify.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🛡️ Key Features & Security Architecture
 
-## Get a fresh project
+### 1. Corporate Domain Restriction (`@hbplus.fit`)
 
-When you're ready, run:
+- **Client-Side Guard:** Validates user email addresses immediately upon Google sign-in.
+- **Server-Side Enforcement:** Unauthenticated or unauthorized email domains (e.g., standard `@gmail.com`) are automatically intercepted, signed out, and denied access.
 
-```bash
-npm run reset-project
+### 2. Role-Based Access Control (RBAC)
+
+- Dynamically assigns user privileges based on email identifiers:
+  - **Admin:** Accounts prefixed with `admin` receive elevated management privileges and dashboard badges.
+  - **Member/User:** Standard `@hbplus.fit` staff accounts receive member dashboard access.
+
+### 3. Persistent Firestore Synchronization
+
+- Automatically synchronizes user profile metadata (UID, display name, email, avatar, and role) into the Firestore `users` collection upon successful authentication.
+
+---
+
+## 📁 Project Structure
+
+```text
+hbplus-portal/
+├── assets/
+│   └── images/               # App icons and branding assets
+├── src/
+│   ├── app/
+│   │   ├── _layout.tsx       # Root layout with AuthProvider & Expo Router Stack
+│   │   ├── index.tsx         # Public landing page & authentication entry
+│   │   ├── login.tsx         # Google OAuth login interface
+│   │   └── dashboard.tsx     # Protected RBAC staff dashboard
+│   ├── context/
+│   │   └── AuthContext.tsx   # Global authentication state & Firestore sync
+│   └── services/
+│       └── firebase.ts       # Firebase initialization & configuration
+├── app.json                  # Expo project configuration
+├── package.json              # Project dependencies & scripts
+├── tsconfig.json             # TypeScript configuration
+└── README.md                 # Project documentation
+
+
+# ⚙️ Local Development Setup
+
+## 1. Prerequisites
+
+* Node.js (v18.x or later)
+
+* npm or yarn
+
+## 2. Installation
+
+* Clone the repository and install dependencies:
+
+* git clone https://github.com/your-username/hbplus-auth.git
+* cd hbplus-assessment
+* npm install
+
+
+## 3. Environment Configuration
+
+* Create a .env file in the root directory and supply your Firebase web project credentials:
+
+   EXPO_PUBLIC_FIREBASE_API_KEY=your_api_key
+   EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+   EXPO_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+   EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+   EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+   EXPO_PUBLIC_FIREBASE_APP_ID=your_app_id
+
+
+## 4. Running Locally
+
+* Start the development server for web:
+
+* npx expo start -c --web
+
+* Open http://localhost:8081 in your browser.
 ```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-### Other setup steps
-
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
